@@ -3,47 +3,36 @@
 
 
 function foo(){
-    'use strict' 
-  
+  'use strict' 
+
+  console.log(this);
+
+  const bar = () =>{
     console.log(this);
-  
-    const bar = () =>{
+  }
+
+
+  bar()
+}
+
+
+
+foo()
+
+
+// 객체에서의 메서드는 일반함수가 좋다.
+// 메서드 안에서 화살표함수가 좋다.
+
+
+
+const user = {
+  foo(){
+    console.log(this);
+    const bar = ()=>{
       console.log(this);
     }
-  
-  
     bar()
   }
-  
-  
-  
-  foo()
-  
-  
-  // 객체에서의 메서드는 일반함수가 좋다.
-  // 메서드 안에서 화살표함수가 좋다.
-  
-  
-  
-  const user = {
-    foo(){
-      console.log(this);
-      const bar = ()=>{
-        console.log(this);
-      }
-      bar()
-    }
-  }
-  
-  user.foo()
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+}
+
+user.foo()

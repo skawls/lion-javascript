@@ -1,51 +1,55 @@
-
-
-
-
 /* -------------------- */
 /* 클로저(Closures)       */
 /* -------------------- */
 
 
+// 클로저 (closure) 란?
+
 // 전역의 오염을 막기 위해 
 // 값을 기억하기 위해 (가비지 컬랙터 수집 x)
 // 함부로 내가 설정한 값을 수정할 수 없게 ( 특정 함수를 통해서만 접근 )
 
-// 클로저 (closure) 란?
+
 // - JavaScript의 매우 강력한 특성으로 독립적인 변수를 참조하는 함수를 말합니다.
 //   즉, 클로저에 정의된 함수는 그것이 작성된 환경을 '기억'합니다.
 
 
+// function sum(a,b){
+  // return a+b
+// }
+
+// const value = sum();
 
 
+function first(xValue = 10){
+  let x = xValue;
 
-function first(){
-    let x = 10;
-  
-  
-    function second(){
-      let y = 5;
-      
-      return x + y;
-    }
-  
-    return second()
+
+  function second(secondValue = 5){
+    let y = secondValue;
+    
+    return x + y;
   }
-  
-  
-  first() // 15
+
+  return second
+}
+
+// currying function 
+
+const value = first(10) // 15
+
+value()
 
 
-
-
+// const a = (b)=>(c)=>(d)=> b+c+d
 
 function counter(){
   let count = 0;
 
 
   function incre(){
-    count++;
-    return count;
+    
+    return ++count;
   }
 
   return incre;
@@ -53,6 +57,78 @@ function counter(){
 
 
 let result = counter();
+let result2 = counter();
+let result3 = counter();
+let result4 = counter();
+
+
+
+
+
+
+const bindEvent = (node,type,handler)=>{
+
+  if(typeof node === 'string'){
+    node = document.querySelector(node);
+  }
+
+
+  
+
+
+  node.addEventListener('click',handler);
+
+
+  return ()=> node.removeEventListener(type,handler);
+  
+}
+
+
+
+function handleClick(){
+  console.log('hit');
+}
+
+
+const remove = bindEvent('.first','click',handleClick);
+
+
+setTimeout(() => {
+
+  remove()
+
+}, 3000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

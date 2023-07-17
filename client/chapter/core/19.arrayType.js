@@ -1,6 +1,6 @@
-/* ---------------------------------------------------------------------- */
-/* Array Type                                                             */
-/* ---------------------------------------------------------------------- */
+/* -------------------- */
+/* Array Type           */
+/* -------------------- */
 
 
 // 객체(Object) : 키(key)를 사용해 식별할 수 있는 값을 담은 집합 - `키:값의 집합`
@@ -12,22 +12,31 @@
 
 
 // 배열 선언
+let friends = '진승,혜미,송이,효윤,선용,승민,상호,영은,희소'.split(',');
 
+// console.log( friends );
 
 // 배열 요소의 총 갯수
+// console.log( friends.length = 0 );
 
 
 // 배열 요소 변경
+friends[0] = '선범'
 
 
 // 배열 요소 추가
-let unshift;
-let push;
+let unshift = friends.unshift('진승'); // 앞 요소 추가 
+console.log( friends ); 
 
+let push = friends.push('동균'); // 뒤 요소 추가 
+console.log( friends );
 
 // 배열 요소 제거
-let shift;
-let pop;
+let shift = friends.shift(); // 앞 요소 제거
+console.log(friends);
+
+let pop = friends.pop(); // 뒤 요소 제거 
+console.log(friends);
 
 
 // 큐(queue) vs. 스택(stack)
@@ -40,23 +49,23 @@ let pop;
 
 for(let i = 0; i < friends.length; i++){
   // console.log(friends[i]);
-
 }
+
 
 for(let value of friends){
-  // console.log(value);
+  // console.log( value );
 }
 
 
 
 
-// // 배열 복사
-// let copiedArray = [... friends];
+// 배열 복사
+// let copiedArray = [...friends];
 // let copiedArray = friends.slice();
-// let copiedArray = friends.toSorted();
+let copiedArray = friends.toSorted();
 
+console.log( copiedArray );
 
-console.log( copiedArray);
 
 
 // 다차원 배열
@@ -69,3 +78,5 @@ const matrix = [
 ];
 
 // 행렬의 정중앙에 위치한 요소를 찾으려면?
+
+matrix[1][1]
