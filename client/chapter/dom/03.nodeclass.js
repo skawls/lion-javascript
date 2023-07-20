@@ -71,3 +71,17 @@ first.innerHTML = 'helooooo';
 // - hidden
 // * hidden은 HTML 속성으로, DOM 프로퍼티로 사용 가능
 // * hidden 프로퍼티는 기술적으로 style="display:none"와 동일
+
+const h1 = getNode('h1');
+
+h1.hidden = false;
+
+
+let toggle = false;
+
+// setInterval(() => {
+//   h1.hidden = toggle? false:true;
+  
+//   toggle = !toggle;
+
+// }, 100);
