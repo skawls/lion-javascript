@@ -14,7 +14,7 @@ module.exports = {
                 ".eslintrc.{js,cjs}"
             ],
             "parserOptions": {
-                "sourceType": "script"
+                "sourceType": "script",
             }
         }
     ],
@@ -23,6 +23,7 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
-         "no-unused-vars": "warn"
+         "no-unused-vars": "warn",
+        //  "no-unused": "off",
     }
 }
